@@ -71,3 +71,7 @@ const change_password = async (req, res) => {
     });
   }
 };
+
+module.exports={
+  change_password
+}
