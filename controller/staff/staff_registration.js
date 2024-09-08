@@ -67,7 +67,7 @@ const  staff_registration = async(req,res)=>{
                     err
                 })
             }
-            const ismailsent = SendEmail(req.body.email, `Dear ${req.body.name},<br/>Welcome to TechMe!<br/>Your registration was successfully. Here are your account details: .<br/><br/>Email: ${req.body.email}<br/>Password: ${req.body.password}<br/><br/>Please keep this information secure and do not share it with anyone.<br/>You can now log in to your account and start using our services. If you have any questions or need assistance, feel free to reach out to our support team. <br/>its contact number here: Contact No:9106777461<br/>Best regards,<br/>TechMe`,
+            const ismailsent = SendEmail(req.body.email, `Dear ${req.body.name},<br/>Welcome to sutex complanit system!<br/>Your registration was successfully. Here are your account details: .<br/><br/>Email: ${req.body.email}<br/>Password: ${req.body.password}<br/><br/>Please keep this information secure and do not share it with anyone.<br/>You can now log in to your account and start using our services. If you have any questions or need assistance, feel free to reach out to our support team. <br/>its contact number here: Contact No:9106777461<br/>Best regards,<br/>Sutex Complaint`,
               "Rgistration conformation")
               if(!ismailsent){
                 return res.status(400).json({

@@ -57,13 +57,13 @@ const login = async (req, res) => {
                 }
                 return res
                   .status(200)
-                  .json({ sucess: false, Data: user, auth: token });
+                  .json({ sucess: false, Data: user, auth: token,message:"Login Succesfully"});
               });
               //sending Email
               const isMailSent = await SendEmail(
                 user.email,
                 "careersahi login alert if you not reset the passwrod otherwise Ignore",
-                "Login Alert From CareerSahi"
+                "Login Alert From Sutex Complaint System"
               );
               if (!isMailSent) {
                 return res.status(400).json({

@@ -5,6 +5,7 @@ const cors = require("cors");
 const staff = require("./routes/staff");
 const admin = require("./routes/admin");
 const user = require("./routes/user");
+const student = require("./routes/student");
 app.use(cors());
 app.use(express.json());
 
@@ -29,7 +30,8 @@ app.use("/api/staff", staff);
 app.use("/api/admin", admin);
 //user main routes
 app.use("/api/user", user);
-
+//student main routes
+app.use('/api/student',student);
 //server port listen
 app.listen(process.env.PORT, () => {
   console.log(`prot running on http://localhost:${process.env.PORT}/`);
