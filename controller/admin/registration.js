@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const student_registration = async (req, res) => {
   try {
     //check the required fields is blank or not
+    console.log(req.body.cpassword);
     const requiredFields = ["name", "email", "password", "cpassword", "role"];
     const validateerror = await new Promise((resolve, reject) => {
       validation(requiredFields, req.body)

@@ -29,7 +29,7 @@ const change_password = async (req, res) => {
     const user_password = await new Promise((resolve, reject) => {
       config.query(
         "select password from users where id = ?",
-        req.params.userid,
+        req.params.id,
         (error, result, fields) => {
           if (error) {
             return reject(error);
