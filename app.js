@@ -9,6 +9,10 @@ const student = require("./routes/student");
 app.use(cors());
 app.use(express.json());
 
+app.get("/test", (req, res) => {
+  res.send("Hello world");
+});
+
 //check the connection is use or not
 app.get("/", (req, res) => {
   db.query("select 1+1 as solution ", (err, result, fields) => {
