@@ -37,6 +37,6 @@ app.use("/api/user", user);
 //student main routes
 app.use('/api/student',student);
 //server port listen
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8045, () => {
   console.log(`prot running on http://localhost:${process.env.PORT}/`);
 });

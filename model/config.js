@@ -14,7 +14,7 @@ const conn = mysql.createPool({
 
 conn.query("select 1+1 AS Solution", (err, result, fields) => {
   if (err) {
-    console.error("Database connection error:", error);
+    console.error("Database connection error:", err);
     return;
   } else {
     console.log("Database Connection Established");
