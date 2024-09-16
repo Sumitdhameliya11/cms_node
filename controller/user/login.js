@@ -62,7 +62,7 @@ const login = async (req, res) => {
               //sending Email
               const isMailSent = await SendEmail(
                 user.email,
-                "careersahi login alert if you not reset the passwrod otherwise Ignore",
+                "Sutex Complaint Managment System login alert if you not reset the passwrod otherwise Ignore",
                 "Login Alert From Sutex Complaint System"
               );
               if (!isMailSent) {

@@ -51,7 +51,7 @@ const user_forgotpassword = async(req, res) => {
           const resetpasswordurl = `${process.env.BASE_URL}/reset-password/${result[0].id}/${token}`;
           const message =  `Please click on the following link, or paste this into your browser to complete the process:\n\n${resetpasswordurl}`
           //url sending in user email account
-          const isMailSent  = await SendEmail(req.params.email,message,"reset password of careersahi dashboard");
+          const isMailSent  = await SendEmail(req.params.email,message,"Reset Password Of Sutex Compalint Managment System Dashboard");
           if(isMailSent){
               return res.status(200).json({
                   sucess:true,
