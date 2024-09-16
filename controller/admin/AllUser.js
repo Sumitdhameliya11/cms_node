@@ -199,8 +199,8 @@ const show_admin_details = async (req, res) => {
   }
 };
 
-//search user by email 
-const search_user = async (req, res) => {
+//search admin user by email 
+const search_admin_user = async (req, res) => {
   try {
     if(!req.params.email){
         return res.status(404).json({
@@ -209,7 +209,7 @@ const search_user = async (req, res) => {
             err
         })
     }
-    await config.query("select * from users where email like ? and isdelete = 'false'",[`%${req.params.email.trim()}%`],(err,result)=>{
+    await config.query("select * from users where email like ? and isdelete = 'false' and role = admin",[`%${req.params.email.trim()}%`],(err,result)=>{
         if(err){
             return res.status(400).json({
                 sucess:false,
@@ -232,11 +232,78 @@ const search_user = async (req, res) => {
   }
 };
 
+//search staff user by email 
+const search_staff_user = async (req, res) => {
+  try {
+    if(!req.params.email){
+        return res.status(404).json({
+            sucess:false,
+            message:"email not found",
+            err
+        })
+    }
+    await config.query("select * from users where email like ? and isdelete = 'false' and role = staff",[`%${req.params.email.trim()}%`],(err,result)=>{
+        if(err){
+            return res.status(400).json({
+                sucess:false,
+                message:"fetch user details error",
+                err
+            })
+        }
+        return res.status(200).json({
+            sucess:true,
+            message:"fetch user details successfully",
+            Data:result
+        })
+    })
+  } catch (error) {
+    return res.status(500).json({
+      sucess: false,
+      message: "Internal Server Error!",
+      error: `${error.message}`,
+    });
+  }
+};
+
+//search user by email 
+const search_student_user = async (req, res) => {
+  try {
+    if(!req.params.email){
+        return res.status(404).json({
+            sucess:false,
+            message:"email not found",
+            err
+        })
+    }
+    await config.query("select * from users where email like ? and isdelete = 'false' and role = student",[`%${req.params.email.trim()}%`],(err,result)=>{
+        if(err){
+            return res.status(400).json({
+                sucess:false,
+                message:"fetch user details error",
+                err
+            })
+        }
+        return res.status(200).json({
+            sucess:true,
+            message:"fetch user details successfully",
+            Data:result
+        })
+    })
+  } catch (error) {
+    return res.status(500).json({
+      sucess: false,
+      message: "Internal Server Error!",
+      error: `${error.message}`,
+    });
+  }
+};
 module.exports={
     update_userdata,
     delete_user,
     show_student_details,
     show_staff_details,
     show_admin_details,
-    search_user
+    search_student_user,
+    search_admin_user,
+    search_staff_user
 }

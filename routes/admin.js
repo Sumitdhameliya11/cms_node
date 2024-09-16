@@ -8,6 +8,9 @@ const {
   show_staff_details,
   show_admin_details,
   search_user,
+  search_admin_user,
+  search_staff_user,
+  search_student_user,
 } = require("../controller/admin/AllUser");
 const {
   update_complaint,
@@ -29,8 +32,12 @@ router.get("/show-student", verify_token, show_student_details);
 router.get("/show-staff", verify_token, show_staff_details);
 //show admin details
 router.get("/show-admin", verify_token, show_admin_details);
-//search user
-router.get("/search-user/:email", verify_token, search_user);
+//search admin user
+router.get("/search-admin-user/:email", verify_token,search_admin_user);
+//search staff user
+router.get('/search-staff-user/:email',verify_token,search_staff_user);
+//search student user 
+router.get('/search-student-user/:email',verify_token,search_student_user);
 //update complaint
 router.put("/update-complaint/:id", verify_token, update_complaint);
 //show complaint
