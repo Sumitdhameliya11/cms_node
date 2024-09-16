@@ -90,7 +90,7 @@ const delete_user = async (req, res) => {
             message:"id not found"
         })
     }
-    await config.query("update users set isdelete = 'true' where id = ?"[req.params.id],(err,result)=>{
+    await config.query("update users set isdelete = 'true' where id = ?",[req.params.id],(err,result)=>{
         if(err){
             return res.status(400).json({
                 sucess:false,
